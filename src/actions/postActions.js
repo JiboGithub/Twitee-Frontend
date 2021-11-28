@@ -6,7 +6,7 @@ import {
 } from '../constants'
 
 export const addPost = postData => dispatch => {
-	axios.post('http://localhost:5000/api/posts/add', postData)
+	axios.post('https://twiteebackend.herokuapp.com/api/posts/add', postData)
 		.then(res => dispatch({
 			type: ADD_POST,
 			payload: res.data
@@ -16,7 +16,7 @@ export const addPost = postData => dispatch => {
 
 export const getPosts = () => dispatch => {
 	dispatch(loadPosts)
-	axios.get('http://localhost:5000/api/posts')
+	axios.get('https://twiteebackend.herokuapp.com/api/posts')
 		.then(res => dispatch({
 			type: GET_POSTS,
 			payload: res.data 

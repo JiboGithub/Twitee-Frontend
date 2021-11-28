@@ -9,7 +9,7 @@ import {
 
 export const getUserProfile = (userId) => dispatch => {
 	dispatch(loadProfile())
-	axios.get(`http://localhost:5000/api/users/${userId}`)
+	axios.get(`https://twiteebackend.herokuapp.com/api/users/${userId}`)
 		.then(res => dispatch({
 			type: GET_PROFILE,
 			payload: res.data
@@ -18,7 +18,7 @@ export const getUserProfile = (userId) => dispatch => {
 }
 
 export const refreshUserProfile = (userId) => dispatch => {
-	axios.get(`http://localhost:5000/api/users/${userId}`)
+	axios.get(`https://twiteebackend.herokuapp.com/api/users/${userId}`)
 		.then(res => dispatch({
 			type: GET_PROFILE,
 			payload: res.data
@@ -28,7 +28,7 @@ export const refreshUserProfile = (userId) => dispatch => {
 
 export const getPostsByUserId = (userId) => dispatch => {
 	dispatch(loadPosts())
-	axios.get(`http://localhost:5000/api/posts/${userId}`)
+	axios.get(`https://twiteebackend.herokuapp.com/api/posts/${userId}`)
 		.then(res => dispatch({
 			type: GET_POSTS,
 			payload: res.data
@@ -38,7 +38,7 @@ export const getPostsByUserId = (userId) => dispatch => {
 
 
 export const searchUser = (searchData, history) => dispatch => {
-	axios.post('http://localhost:5000/api/users/search', searchData)
+	axios.post('https://twiteebackend.herokuapp.com/api/users/search', searchData)
 		.then(res => {
 			history.push(`/profile/${res.data.userId}`)
 		})
